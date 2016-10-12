@@ -19,6 +19,11 @@ public class CalculatorTest {
 		assertEquals(1, Calculator.add("1"));
 	}
 
+	@Test
+	public void testAnotherNumber() {
+		assertEquals(5, Calculator.add("5"));
+	}
+
 	@Test 
 	public void testTwoNumbers() {
 		assertEquals(4, Calculator.add("1,3"));
