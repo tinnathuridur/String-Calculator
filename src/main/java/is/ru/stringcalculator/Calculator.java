@@ -3,7 +3,8 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
-		text = text.replace("\n", ",");
+		if (text.contains("\n")) 
+		    text = text.replace("\n", ",");
 		if (text == "")
 			return 0;
 		else if (text.contains(","))
