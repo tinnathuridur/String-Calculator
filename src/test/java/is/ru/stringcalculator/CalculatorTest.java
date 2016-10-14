@@ -105,7 +105,12 @@ public class CalculatorTest {
 
 	@Test
 	public void testDifferentDelimeter() {
-		assertEquals(3, Calculator.add("//;1;2"));
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
+
+	@Test
+	public void testDifferentDelimeterAndNewline() {
+		assertEquals(8, Calculator.add("//;\n2;2;4"));
 	}
 
 }

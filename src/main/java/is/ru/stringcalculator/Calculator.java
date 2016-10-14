@@ -5,7 +5,7 @@ public class Calculator {
 	public static int add(String text){
 		if (text.contains("//")) {
 			String delimeter = text.substring(2,3);
-			text = text.substring(3);
+			text = text.substring(4);
 			text = text.replace(delimeter, ",");
 		}
 		if(text == "" ||((!text.contains(",")) && toInt(text) > 1000))
