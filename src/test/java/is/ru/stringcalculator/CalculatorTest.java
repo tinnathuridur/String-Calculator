@@ -93,4 +93,14 @@ public class CalculatorTest {
 		assertEquals(0, Calculator.add("1001"));
 	}
 
+	@Test 
+	public void testMultipleBigNumbers() {
+		assertEquals(0, Calculator.add("1001,1003"));
+	}
+
+	@Test
+	public void testMultipleBigNumbersAndSmallOnes() {
+		assertEquals(3, Calculator.add("1,1001,2,1003"));
+	}
+
 }
