@@ -52,10 +52,18 @@ public class CalculatorTest {
     public ExpectedException thrown = ExpectedException.none();
 
 	@Test
-	public void testNegativeNumber() {
+	public void testOneNegativeNumber() {
     	thrown.expect(IllegalArgumentException.class);
     	thrown.expectMessage("Negatives not allowed: -1");
  
     	Calculator.add("-1");
+	}
+
+	@Test 
+	public void testAnotherNegativeNumber() {
+		thrown.expect(IllegalArgumentException.class);
+    	thrown.expectMessage("Negatives not allowed: -2");
+ 
+    	Calculator.add("-2");
 	}
 }

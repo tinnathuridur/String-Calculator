@@ -3,8 +3,8 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
-		if(text.equals("-1"))
-			throw new IllegalArgumentException("Negatives not allowed: -1");
+		if(text.contains("-"))
+			throw new IllegalArgumentException("Negatives not allowed: " + text);
 		if (text.contains("\n")) 
 		    text = text.replace("\n", ",");
 		if (text == "")
