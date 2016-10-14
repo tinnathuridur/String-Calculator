@@ -4,9 +4,7 @@ public class Calculator {
 
 	public static int add(String text){
 		if (text.contains("//")) {
-			String delimeter = text.substring(2,3);
-			text = text.substring(4);
-			text = text.replace(delimeter, ",");
+			text = changeDelimeter(text);
 		}
 		if(text == "" ||((!text.contains(",")) && toInt(text) > 1000))
 			return 0;
@@ -16,6 +14,14 @@ public class Calculator {
 			return sum(splitNumbers(text));
 		else
 			return toInt(text);
+	}
+
+	private static String changeDelimeter(String txt) {
+		String delimeter = txt.substring(2,3);
+			txt = txt.substring(4);
+			txt = txt.replace(delimeter, ",");
+
+		return txt;
 	}
 
     private static int toInt(String number){
