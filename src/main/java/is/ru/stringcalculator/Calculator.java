@@ -3,16 +3,11 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
-		if(text.contains("-")) {
-			String[] numbers = splitNumbers(text);
-			String negatives = findNegatives(numbers);
-			throw new IllegalArgumentException("Negatives not allowed: " + negatives);
-		}
 		if (text.contains("\n")) 
 		    text = text.replace("\n", ",");
 		if (text == "")
 			return 0;
-		else if (text.contains(","))
+		else if (text.contains(",") || text.contains("-"))
 			return sum(splitNumbers(text));
 		else
 			return toInt(text);
@@ -23,7 +18,12 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split(",");
+	    String[] splitNumbers = numbers.split(",");
+	    if(numbers.contains("-")) {
+			String negatives = findNegatives(splitNumbers);
+			throw new IllegalArgumentException("Negatives not allowed: " + negatives);
+		}
+	    return splitNumbers;
 	}
       
     private static int sum(String[] numbers){
