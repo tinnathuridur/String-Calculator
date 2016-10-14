@@ -103,4 +103,9 @@ public class CalculatorTest {
 		assertEquals(3, Calculator.add("1,1001,2,1003"));
 	}
 
+	@Test
+	public void testDifferentDelimeter() {
+		assertEquals(3, Calculator.add("//;1;2"));
+	}
+
 }

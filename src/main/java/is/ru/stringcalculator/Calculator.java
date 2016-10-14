@@ -3,12 +3,15 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
+		if (text.contains("//")) {
+			String delimeter = text.substring(2,3);
+			text = text.substring(3);
+			text = text.replace(delimeter, ",");
+		}
 		if(text == "" ||((!text.contains(",")) && toInt(text) > 1000))
 			return 0;
 		if (text.contains("\n")) 
-		    text = text.replace("\n", ",");
-		//if (text == "")
-		//	return 0;
+		    text = text.replace("\n", ","); //might need to change this
 		if (text.contains(",") || text.contains("-"))
 			return sum(splitNumbers(text));
 		else
