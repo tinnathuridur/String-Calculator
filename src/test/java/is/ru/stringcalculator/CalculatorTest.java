@@ -66,4 +66,20 @@ public class CalculatorTest {
  
     	Calculator.add("-2");
 	}
+
+	@Test
+	public void testNegativeNumberAndPositiveNumber() {
+		thrown.expect(IllegalArgumentException.class);
+    	thrown.expectMessage("Negatives not allowed: -1");
+ 
+    	Calculator.add("-1,2");
+	}
+
+	@Test
+	public void testTwoNegativesAndTwoPositives() {
+		thrown.expect(IllegalArgumentException.class);
+    	thrown.expectMessage("Negatives not allowed: -4,-5");
+ 
+    	Calculator.add("2,-4,3,-5");
+	}
 }

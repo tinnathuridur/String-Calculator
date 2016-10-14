@@ -3,8 +3,11 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static int add(String text){
-		if(text.contains("-"))
-			throw new IllegalArgumentException("Negatives not allowed: " + text);
+		if(text.contains("-")) {
+			String[] numbers = splitNumbers(text);
+			String negatives = findNegatives(numbers);
+			throw new IllegalArgumentException("Negatives not allowed: " + negatives);
+		}
 		if (text.contains("\n")) 
 		    text = text.replace("\n", ",");
 		if (text == "")
@@ -30,4 +33,20 @@ public class Calculator {
         }
 	    return total;
     }
+
+   private static String findNegatives(String[] numbers) {
+   		String negatives = "";
+   		int counter = 0;
+   		for (int i = 0; i < numbers.length; i++) {
+   			if(numbers[i].contains("-")) {
+   				if (counter > 0)
+   				    negatives += "," + numbers[i];
+   				else
+   					negatives += numbers[i];
+   				counter++;
+   			}
+   		}
+
+   		return negatives;
+   }
 }
